@@ -4,6 +4,10 @@ This project demonstrates an OpenAI ChatGPT like project illlustrating the struc
 
 > Status: Runs locally, not yet hosted enabled for GitHub Pages access...
 
+## Limited Focus
+
+This assistant is trained on the [pro-analytics-01](https://github.com/denisecase/pro-analytics-01) guide and is designed to help with setting up and working on professional analytics projects using Git, Python, and VS Code.
+
 ## Notes: Use Python 3.11, Needs 0.5 GB 
 
 ML tools work better on 3.11.
