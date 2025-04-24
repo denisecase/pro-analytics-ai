@@ -63,17 +63,31 @@ OPENROUTER_API_KEY=or-xxxxxxxxxxxxxxxxxxxx
 
 ```shell
 sudo apt install uvicorn
-chmod +x run_api.sh
-./run_api.sh
 ```
 
-Or run with:
+To launch the backend:
 
-`uvicorn backend.A_api_interface.query_api:app --reload --port 8000`
+```shell
+uvicorn backend.A_api_interface.query_api:app --host 0.0.0.0 --port 8000 --reload
+```
+Keep the terminal open and don't use it for anything else while running the backend. 
 
-Use CTRL C to kill the process. 
+To test it, open another terminal and run:
 
-## To run the app locally
+```shell
+curl -X POST http://127.0.0.1:8000/query \
+  -H "Content-Type: application/json" \
+  -d '{"question": "What is git?"}'
+```
+
+Use CTRL C (multiple times as needed) to kill the process. 
+
+## To Open a Front End
+
+Install VS Code Extension Live Preview. 
+In VS Code, right-click docs/index.html / Show Preview. 
+
+## To test the app 
 
 `python3 backend/main.py`
 
@@ -137,4 +151,21 @@ Runs locally, not yet hosted.
 | RAG + OpenRouter API   | Builds a prompt from relevant context and queries LLM |
 | UI Response      | Displays answer in the interface      |
 
+## Answers Change 
+
+Answers will change. To get consistent responses, we can set the 'temperature' to zero. 
+
+```python
+response = client.chat.completions.create(
+    model=model_name,
+    messages=[{"role": "user", "content": prompt}],
+    temperature=0.0
+)
+```
+
+Since we haven't done that, responses will vary. For example:
+
+- Git is a version control system.
+- Git is a version control system that allows you to track changes in your code, collaborate with others, and manage your project's history effectively.
+ 
 ![Example](images/pro-analytics-ai.png)
