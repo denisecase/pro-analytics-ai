@@ -1,0 +1,71 @@
+2025-04-24 13:27:14.917 | INFO     | utils.logger:<module>:39 - Logging to file: logs/project_log.log
+2025-04-24 13:27:14.919 | INFO     | utils.config:<module>:11 - Loaded .env from /home/denisecase/repos/pro-analytics-ai/backend/utils/../../.env
+2025-04-24 13:27:18.607 | INFO     | B_prompt_model.call_model:<module>:26 - Using OpenRouter (free) as LLM provider.
+2025-04-24 13:27:25.957 | INFO     | backend.A_api_interface.query_api:ask_question:42 - Received query: What is git
+2025-04-24 13:27:25.957 | INFO     | C_retrieval_logic.c01_load_files:load_markdown_files:5 - Loading markdown files...
+2025-04-24 13:27:25.958 | INFO     | C_retrieval_logic.c01_load_files:load_markdown_files:9 - Loaded 29 files.
+2025-04-24 13:27:25.958 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/README.md
+2025-04-24 13:27:25.958 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 12 chunks from pro-analytics-01/README.md
+2025-04-24 13:27:25.958 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/01-machine-setup/03a-linux-install-python-git-vscode.md
+2025-04-24 13:27:25.958 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 2 chunks from pro-analytics-01/01-machine-setup/03a-linux-install-python-git-vscode.md
+2025-04-24 13:27:25.958 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/01-machine-setup/02b-mac-install-brew.md
+2025-04-24 13:27:25.958 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 3 chunks from pro-analytics-01/01-machine-setup/02b-mac-install-brew.md
+2025-04-24 13:27:25.958 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/01-machine-setup/07-create-github-account.md
+2025-04-24 13:27:25.958 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 2 chunks from pro-analytics-01/01-machine-setup/07-create-github-account.md
+2025-04-24 13:27:25.958 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/01-machine-setup/03b-mac-install-python-git-vscode.md
+2025-04-24 13:27:25.958 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 4 chunks from pro-analytics-01/01-machine-setup/03b-mac-install-python-git-vscode.md
+2025-04-24 13:27:25.958 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/01-machine-setup/01-view-hidden-files-and-extensions.md
+2025-04-24 13:27:25.958 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 7 chunks from pro-analytics-01/01-machine-setup/01-view-hidden-files-and-extensions.md
+2025-04-24 13:27:25.958 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/01-machine-setup/05-install-vscode-extensions.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 7 chunks from pro-analytics-01/01-machine-setup/05-install-vscode-extensions.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/01-machine-setup/MACHINE-SETUP.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 6 chunks from pro-analytics-01/01-machine-setup/MACHINE-SETUP.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/01-machine-setup/03c-windows-install-python-git-vscode.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 4 chunks from pro-analytics-01/01-machine-setup/03c-windows-install-python-git-vscode.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/01-machine-setup/04-configure-git.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 4 chunks from pro-analytics-01/01-machine-setup/04-configure-git.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/01-machine-setup/02a-linux-install-apt.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 2 chunks from pro-analytics-01/01-machine-setup/02a-linux-install-apt.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/01-machine-setup/06-create-projects-folder.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 9 chunks from pro-analytics-01/01-machine-setup/06-create-projects-folder.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/01-machine-setup/02c-windows-install-winget.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 3 chunks from pro-analytics-01/01-machine-setup/02c-windows-install-winget.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/04-help/01-taking-screenshots.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 4 chunks from pro-analytics-01/04-help/01-taking-screenshots.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/03-repeatable-workflow/04a-activate-and-run-python-script.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 10 chunks from pro-analytics-01/03-repeatable-workflow/04a-activate-and-run-python-script.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/03-repeatable-workflow/04b-activate-and-run-jupyter-notebook.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 11 chunks from pro-analytics-01/03-repeatable-workflow/04b-activate-and-run-jupyter-notebook.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/03-repeatable-workflow/05-modify-and-test.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 3 chunks from pro-analytics-01/03-repeatable-workflow/05-modify-and-test.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/03-repeatable-workflow/06-git-add-commit-push.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 4 chunks from pro-analytics-01/03-repeatable-workflow/06-git-add-commit-push.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/03-repeatable-workflow/REPEATABLE-WORKFLOW.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 6 chunks from pro-analytics-01/03-repeatable-workflow/REPEATABLE-WORKFLOW.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/03-repeatable-workflow/02-activate-virtual-environment.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 4 chunks from pro-analytics-01/03-repeatable-workflow/02-activate-virtual-environment.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/03-repeatable-workflow/01-git-pull-before-changes.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 3 chunks from pro-analytics-01/03-repeatable-workflow/01-git-pull-before-changes.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/03-repeatable-workflow/03-install-dependencies.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 8 chunks from pro-analytics-01/03-repeatable-workflow/03-install-dependencies.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/02-project-initialization/PROJECT-INITIALIZATION.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 6 chunks from pro-analytics-01/02-project-initialization/PROJECT-INITIALIZATION.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/02-project-initialization/01b-create-repo-in-github.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 5 chunks from pro-analytics-01/02-project-initialization/01b-create-repo-in-github.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/02-project-initialization/03-add-gitignore-and-requirements.md
+2025-04-24 13:27:25.959 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 5 chunks from pro-analytics-01/02-project-initialization/03-add-gitignore-and-requirements.md
+2025-04-24 13:27:25.960 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/02-project-initialization/01a-copy-existing-repo-in-github.md
+2025-04-24 13:27:25.960 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 3 chunks from pro-analytics-01/02-project-initialization/01a-copy-existing-repo-in-github.md
+2025-04-24 13:27:25.960 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/02-project-initialization/05-create-virtual-environment.md
+2025-04-24 13:27:25.960 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 6 chunks from pro-analytics-01/02-project-initialization/05-create-virtual-environment.md
+2025-04-24 13:27:25.960 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/02-project-initialization/04-git-add-commit-push.md
+2025-04-24 13:27:25.960 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 4 chunks from pro-analytics-01/02-project-initialization/04-git-add-commit-push.md
+2025-04-24 13:27:25.960 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:4 - Chunking file: pro-analytics-01/02-project-initialization/02-clone-repo-to-local.md
+2025-04-24 13:27:25.960 | INFO     | C_retrieval_logic.c02_chunk_text:chunk_text:12 - Created 3 chunks from pro-analytics-01/02-project-initialization/02-clone-repo-to-local.md
+2025-04-24 13:27:25.960 | INFO     | C_retrieval_logic.c03_embed_chunks:embed_chunks:8 - Embedding 150 chunks...
+2025-04-24 13:27:26.985 | INFO     | C_retrieval_logic.c03_embed_chunks:embed_chunks:12 - Embedding complete.
+2025-04-24 13:27:26.985 | INFO     | C_retrieval_logic.c04_search_vectors:search_vectors:4 - Running placeholder vector search...
+2025-04-24 13:27:26.985 | INFO     | C_retrieval_logic.c05_rank_chunks:rank_chunks:4 - Ranking placeholder chunks...
+2025-04-24 13:27:26.986 | INFO     | B_prompt_model.call_model:call_model:43 - Using 3 chunks for prompt context.
+2025-04-24 13:27:26.986 | INFO     | B_prompt_model.call_model:call_model:47 - Prompt length: 1023 characters (~255 tokens)
+2025-04-24 13:27:28.256 | INFO     | B_prompt_model.call_model:call_model:57 - Received response from model.

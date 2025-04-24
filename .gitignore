@@ -1,0 +1,45 @@
+# This .gitignore file lists content that does NOT need to be tracked in the project history
+
+# General Note on Path Separators:
+#   / : macOS, Linux, Bash, Zsh, Git Bash and WSL (Windows Subsystem for Linux) - forward slashes.
+#   / : PowerShell Core, PowerShell Windows - forward, but also accept backslashes.
+#   / : Web apps and web addresses (URLs) - forward slashes.
+#   \ : Windows (native) is the only option that uses backslashes in paths.
+
+# General Note on Path Separators in .gitignore:
+#   ALWAYS use forward slashes (/) in .gitignore files, regardless of operating system.
+#   Backslashes (\) are specific to Windows and can cause problems in cross-platform contexts.
+
+# General Note BEFORE making changes to a project
+#    Open a terminal in the root project folder and run the following command (without the #):
+#       git pull origin main
+
+# General Note AFTER making changes to a project
+#   Open a terminal in the root project folder and run the following commands (without the #):
+#       git add .
+#       git commit -m "Your commit message here"
+#       git push -u origin main
+
+
+# Visual Studio Code settings and workspace folder - Ignore entire .vscode folder 
+.vscode/
+
+# macOS system files
+.DS_Store
+Thumbs.db
+
+# Python virtual environment folder
+.venv/
+
+# Compiled Python files
+__pycache__/
+
+# Jupyter Notebook checkpoint files
+.ipynb_checkpoints
+
+# Environment variables and secrets
+.env
+
+# Chroma or FAISS data
+backend/D_storage_layer/chroma_store/
+*.index
