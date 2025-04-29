@@ -12,7 +12,9 @@ This module:
 """
 
 from fastapi import FastAPI, Request
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 
 import sys
@@ -35,6 +37,15 @@ from backend.B_prompt_model.b0_pipeline import query
 
 app = FastAPI()
 
+# 1. Middleware first: CORS settings
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# 2. Rate limiting second
 # Rate limiter: 1 request per IP per hour
 limiter = Limiter(key_func=get_remote_address)
 app.state.limiter = limiter
@@ -48,19 +59,12 @@ async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
         content={"detail": "Rate limit exceeded. Please try again later."}
     )
 
-# CORS settings
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
+# 3. API ROUTES Next
 # MAIN POST endpoint
 @app.post("/query", response_model=QueryResponse)
 @limiter.limit("1/hour")  
 async def ask_question(request: Request, payload: QueryRequest):
-    if ENV != "dev":
+    if ENV == "dev":
         logger.info(f"Ignoring query in {ENV} mode.")
         return QueryResponse(
             answer=(
@@ -73,3 +77,14 @@ async def ask_question(request: Request, payload: QueryRequest):
     logger.info(f"Received query: {question}")
     answer = query(question)
     return QueryResponse(answer=answer)
+
+
+# 4. Redirect root to docs
+@app.get("/")
+async def root():
+    return RedirectResponse(url="/docs/")
+
+# 5. Static files for frontend LAST
+# Go to http://<your-ec2-ip>:8000/ and it will serve index.html
+app.mount("/docs", StaticFiles(directory="docs", html=True), name="static")
+

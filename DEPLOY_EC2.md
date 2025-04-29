@@ -98,6 +98,12 @@ Example if you update `query_api.py` or `requirements.txt` - NOTE these must be 
 scp -i ~/.ssh/pro-analytics-ai-key.pem backend/A_api_interface/query_api.py ubuntu@34.222.116.69:~/pro-analytics-ai/backend/A_api_interface/query_api.py
 
 scp -i ~/.ssh/pro-analytics-ai-key.pem requirements.txt ubuntu@34.222.116.69:~/pro-analytics-ai/requirements.txt
+
+scp -i ~/.ssh/pro-analytics-ai-key.pem -r docs ubuntu@34.222.116.69:~/pro-analytics-ai/
+
+scp -i ~/.ssh/pro-analytics-ai-key.pem backend/utils/config.py ubuntu@34.222.116.69:~/pro-analytics-ai/backend/utils/config.py
+
+
 ```
 
 ## 9. Run the API for Debugging (Optional)
@@ -109,27 +115,29 @@ uvicorn backend.A_api_interface.query_api:app --host 0.0.0.0 --port 8000
 
 ### 10. Run the API For Deployment
 
+From your VS Code terminal (in Linux or WSL):
+
 ```shell
-# SSH into EC2 again if needed
 ssh -i ~/.ssh/pro-analytics-ai-key.pem ubuntu@34.222.116.69
-
-# Go to the server project folder
 cd ~/pro-analytics-ai
-
-# Activate the server .venv environment
 source .venv/bin/activate
-
-# Start API using nohup
 nohup uvicorn backend.A_api_interface.query_api:app --host 0.0.0.0 --port 8000 &
 ```
 
 ### 11. While Server is Running (as needed)
 
-See logs: `tail -f nohup.out`
+See logs: 
+
+```shell
+ssh -i ~/.ssh/pro-analytics-ai-key.pem ubuntu@34.222.116.69
+cd ~/pro-analytics-ai
+tail -f nohup.out
+```
 
 Kill the process (get the PID number from the first command and use it in the second):
 
 ```shell
+ssh -i ~/.ssh/pro-analytics-ai-key.pem ubuntu@34.222.116.69
 ps aux | grep uvicorn
 kill <pid>
 ```

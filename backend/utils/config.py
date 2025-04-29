@@ -6,15 +6,17 @@ from utils.logger import logger
 # Load environment variables
 # ==========================================================
 
-# Check environment: dev (local), prod (deployed)
+# Always try to load from .env (works in dev or test)
+dotenv_path = os.path.join(os.path.dirname(__file__), "../../.env")
+load_dotenv(dotenv_path)
+
+# Then read ENV variable to determine environment
 ENV = os.getenv("ENV", "dev")
 
 if ENV == "dev":
-    dotenv_path = os.path.join(os.path.dirname(__file__), "../../.env")
-    load_dotenv(dotenv_path)
     logger.info(f"Loaded .env from {dotenv_path}")
 else:
-    logger.info("Running in production — relying on environment variables.")
+    logger.info("Running in production; relying on environment variables.")
 
 # ==========================================================
 # Model and System Configuration
