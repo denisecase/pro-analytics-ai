@@ -16,7 +16,7 @@ from utils.logger import logger
 from utils.logger import logger
 from utils.config import ENV  
 from A_api_interface.query_schema import QueryRequest, QueryResponse
-from B_prompt_model.query_pipeline import query  # was: from main import query
+from backend.B_prompt_model.b0_pipeline import query  # was: from main import query
 
 app = FastAPI()
 
@@ -42,3 +42,8 @@ async def ask_question(payload: QueryRequest):
     logger.info(f"Received query: {question}")
     answer = query(question)
     return QueryResponse(answer=answer)
+
+
+# OPTIONAL - If deploying, expose app to AWS Lambda
+from mangum import Mangum
+handler = Mangum(app)

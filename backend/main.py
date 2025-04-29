@@ -9,7 +9,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 # Local imports
 from utils.logger import logger
 
-from B_prompt_model.query_pipeline import query
+from backend.B_prompt_model.b0_pipeline import query
 from C_retrieval_logic.c01_load_files import load_markdown_files
 from C_retrieval_logic.c02_chunk_text import chunk_text
 from C_retrieval_logic.c03_embed_chunks import embed_chunks

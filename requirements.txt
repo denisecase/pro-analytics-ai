@@ -46,7 +46,7 @@
 ### On Mac  - don't include the #:
 # brew install python@3.11
 # python3 -m venv .venv
-### On Linux - don't include the #:
+### On Linux/WSL - don't include the #:
 # sudo apt update
 # sudo apt install python3.11 python3.11-venv
 # python3.11 -m venv .venv
@@ -61,7 +61,7 @@
 ### Windows PowerShell Command (don't include the #):
 # .\.venv\Scripts\activate
 
-### Mac/Linux Command (don't include the #):
+### Mac/Linux/WSL Command (don't include the #):
 # source .venv/bin/activate
 
 # Verify: When active, you can usually see (.venv) in the terminal.
@@ -80,11 +80,11 @@
 
 ### Windows Command (don't include the #):
 # py -m pip install --upgrade pip setuptools wheel
-# py -m pip install --upgrade -r requirements.txt
+# py -m pip install --upgrade -r requirements.txt --timeout 100
 
-### Mac/Linux Command (don't include the #):
+### Mac/Linux/WSL Command (don't include the #):
 # python3 -m pip install --upgrade pip setuptools wheel
-# python3 -m pip install --upgrade -r requirements.txt
+# python3 -m pip install --upgrade -r requirements.txt --timeout 100
 
 # When you identify a new package you want to use, 
 # Just update the list below and re-run the install command. 
@@ -142,7 +142,7 @@ python-dotenv
 # TEXT-TO-SPEECH
 # ======================================================
 # Offline text-to-speech library for Python (1-15 MB)
-# pyttsx3  
+#pyttsx3  
 
 # ======================================================
 # JUPYTERLAB (OPTIONAL, NEEDED FOR NOTEBOOKS)
@@ -150,19 +150,19 @@ python-dotenv
 
 # Next-generation web-based interactive development environment for Jupyter notebooks, code, and data.
 # Offers a more feature-rich and versatile experience than the classic Jupyter Notebook. (60-70 MB)
-jupyterlab
+#jupyterlab
 
 # Core IPython package that provides an enhanced interactive Python shell (10-15 MB).
-ipython
+#ipython
 
 # Core Jupyter functionality required for running notebooks in VS Code (50-60 MB).
-jupyter
+#jupyter
 
 # Kernel interface for Jupyter notebooks (required for proper kernel registration)
-ipykernel
+#ipykernel
 
 # Interactive widgets (often used in notebooks).
-ipywidgets
+#ipywidgets
 
 # ======================================================
 # DATA STORAGE AND RETRIEVAL 
@@ -171,7 +171,7 @@ ipywidgets
 # SQLite database support (built into Python, no install needed)
 
 # DuckDB: A lightweight, serverless database for Python (5-10 MB).
-duckdb
+#duckdb
 
 # ORM for SQL databases (~10 MB) when sqlite3 is not enough
 #sqlalchemy  
@@ -184,7 +184,7 @@ duckdb
 #numpy
 
 # Data manipulation and analysis (built on numpy, 10-20 MB)
-pandas
+#pandas
 
 # High-performance DataFrame library for large datasets (Rust-based, fast) (~5-10 MB)
 #polars
@@ -194,10 +194,10 @@ pandas
 # ======================================================
 
 # Core library for creating visualizations (~30 MB)
-matplotlib
+#matplotlib
 
 # Statistical data visualization library built on matplotlib (~2-5 MB)
-seaborn
+#seaborn
 
 # Interactive plotting library, often used with Shiny apps (~20-25 MB)
 #plotly
@@ -233,7 +233,7 @@ seaborn
 # ======================================================
 
 # Statistical modeling and inference (~10-15 MB)
-# statsmodels
+#statsmodels
 
 # Core ML library with flexible APIs (~40-50 MB)
 #scikit-learn
@@ -261,8 +261,8 @@ seaborn
 # https://pypi.org/project/dc-texter/ or https://github.com/denisecase/dc-texter
 
 # Uncomment the necessary package(s) to send email or SMS alerts.
-# dc-mailer
-# dc-texter
+#dc-mailer
+#dc-texter
 
 # ======================================================
 # API + dev server
@@ -275,22 +275,64 @@ fastapi
 uvicorn   
 
 # For request validation and serialization in FastAPI (5-10 MB)
-pydantic          
+pydantic     
 
 # ======================================================
-# Core vector & language tools for LLMs and embeddings
+# LLM: REQUIRED (Minimal for API / Full Precision Models)
 # ======================================================
 
-# Lightweight vector database for storing and searching embeddings.
-# Runs entirely offline and free. (~10–15 MB)
-chromadb
-
-# OpenAI Python client for calling GPT-3.5 or GPT-4 via their API.
-# Requires an OpenAI API key. (~1 MB)
+# OpenAI Python client for calling GPT-3.5 or GPT-4 via their API (~1 MB)
+# Required if using OpenAI or OpenRouter API (full model, no local loading).
+# Requires an OpenAI API key or OpenRouter API key. 
 openai
 
-# For turning text into embeddings (numerical vectors) for semantic search and retrieval.
-# Uses small transformer models under the hood. (~300–400 MB with dependencies and model download)
-fonttools
-sentence-transformers    
+# Lightweight vector database for storing and searching embeddings (~10–15 MB)
+# Runs entirely offline and free. 
+# Used for local retrieval (searching project files to build context for the LLM).
+chromadb
 
+# Sentence-transformers for generating local embeddings (~300–400 MB with dependencies and model download)
+# Used for turning raw source files (.md, .py, etc.) into vector form for retrieval.
+sentence-transformers==2.7.0
+
+# ======================================================
+# LLM: ADDITIONAL REQUIREMENTS (Needed for Local 8-bit or 4-bit Models)
+# ======================================================
+
+# PyTorch: Core machine learning library required for local model loading (~500–800 MB)
+# Required if running local Hugging Face models (8-bit or 4-bit).
+# VERSION MUST BE COMPATIBLE.
+# torch==2.7.0
+
+# Fonttools: Dependency for some tokenizers (~50–100 MB)
+# Used internally by Hugging Face transformers.
+# fonttools
+
+# Hugging Face transformers library for loading LLM models (~300–400 MB with dependencies)
+# VERSION MUST BE COMPATIBLE.
+# transformers==4.39.1
+
+# Hugging Face PEFT: Parameter-efficient fine-tuning (~10–20 MB)
+# Used in some quantized models for low-resource fine-tuning.
+# VERSION MUST BE COMPATIBLE.
+# peft==0.15.2
+
+# ======================================================
+# OPTIONAL QUANTIZATION TOOLS (For Optimized 8-bit and 4-bit Model Loading)
+# ======================================================
+
+# Hugging Face Optimum (small ~20–30 MB)
+# Helps transformers manage quantization and optimized hardware support.
+# optimum
+
+# bitsandbytes: Enables 8-bit model loading with reduced memory footprint (~80 MB).
+# Provides binary CUDA code for GPU acceleration and PyTorch compatibility.
+# bitsandbytes
+
+# AutoGPTQ enables 4-bit quantized model loading (~125–250 MB including dependencies)
+# Actual package is small, but it pulls several additional libraries like accelerate, datasets, pyarrow, etc.
+# Important: Requires loading separate 4-bit pre-trained models that may range from ~1 GB to ~10 GB+ each, depending on the model.
+# 4-bit models are usually stored as safetensors or bin files.
+# These models are NOT included with the package and will be downloaded separately.
+# Ensure you have enough disk space (~1 TB) before working with 4-bit models.
+# auto-gptq

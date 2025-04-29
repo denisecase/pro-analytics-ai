@@ -37,9 +37,22 @@ __pycache__/
 # Jupyter Notebook checkpoint files
 .ipynb_checkpoints
 
-# Environment variables and secrets
+# IMPORTANT: Environment variables and secrets
 .env
 
 # Chroma or FAISS data
 backend/D_storage_layer/chroma_store/
 *.index
+
+# Lambda build artifacts (not used - these are much too large for AWS Lambda)
+lambda_build/
+lambda_function.zip
+
+# Log folder and files
+logs/
+*.log
+
+# temporary working files
+b.py 
+DEPLOY_VAST_IO.md
+ss/

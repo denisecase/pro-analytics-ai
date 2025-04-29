@@ -2,7 +2,11 @@ import os
 from dotenv import load_dotenv
 from utils.logger import logger
 
-# Load .env only in dev environments
+# ==========================================================
+# Load environment variables
+# ==========================================================
+
+# Check environment: dev (local), prod (deployed)
 ENV = os.getenv("ENV", "dev")
 
 if ENV == "dev":
@@ -12,20 +16,27 @@ if ENV == "dev":
 else:
     logger.info("Running in production — relying on environment variables.")
 
+# ==========================================================
+# Model and System Configuration
+# ==========================================================
 
-# Required: Set LLM Provider 
+# Quantization Mode:
+# - none  → hosted APIs like OpenAI/OpenRouter
+# - 8bit → local 8-bit quantized model (bitsandbytes)
+# - 4bit → local 4-bit quantized model (AutoGPTQ)
+QUANT_MODE = os.getenv("QUANT_MODE", "none").lower()
+
+# Hosted LLM API Providers
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openrouter").lower()
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 
-# One is required, the other is optional
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+# Local HuggingFace Model Name (only if QUANT_MODE is "8bit" or "4bit")
+MODEL_NAME = os.getenv("MODEL_NAME", "TheBloke/TinyLlama-1.1B-Chat-v1.0-GPTQ")
 
-# Optional: Set model name or API URL here too
+# Model settings
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-3.5-turbo")
 
-# Optional: Future-proof config options
+# Embedding settings
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
 VECTOR_DB = os.getenv("VECTOR_DB", "chroma")
-
-
-
