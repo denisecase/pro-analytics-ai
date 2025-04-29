@@ -60,9 +60,9 @@ async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
     )
 
 # 3. API ROUTES Next
-# MAIN POST endpoint
+# MAIN POST endpoint limit to 10 per minute and 200 per day
 @app.post("/query", response_model=QueryResponse)
-@limiter.limit("1/hour")  
+@limiter.limit("10/minute;200/day")  
 async def ask_question(request: Request, payload: QueryRequest):
     if ENV == "dev":
         logger.info(f"Ignoring query in {ENV} mode.")
