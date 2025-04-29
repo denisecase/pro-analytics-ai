@@ -271,6 +271,9 @@ python-dotenv
 # Lightweight API server for building RESTful APIs and web applications (10-20 MB)
 fastapi  
 
+# Rate limiting
+slowapi
+
 # ASGI server to run FastAPI applications (10-20 MB)
 uvicorn   
 

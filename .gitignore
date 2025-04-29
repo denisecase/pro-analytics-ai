@@ -54,5 +54,6 @@ logs/
 
 # temporary working files
 b.py 
-DEPLOY_VAST_IO.md
 ss/
+DEPLOY_VAST_IO.md
+DEPLOY_CONTABO.md

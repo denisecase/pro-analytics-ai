@@ -12,7 +12,16 @@ document.getElementById("submitButton").addEventListener("click", async () => {
     responseBox.innerText = "Thinking...";
     console.log("Sending question:", question);
 
-    const BACKEND_URL = "http://127.0.0.1:8000/query";
+    // Dynamic backend URL based on window.location.hostname
+    let backendHost = window.location.hostname;
+    let BACKEND_URL = "";
+
+    if (backendHost === "localhost" || backendHost === "127.0.0.1" || backendHost === "") {
+      BACKEND_URL = "http://127.0.0.1:8000/query"; // Local dev
+    } else {
+      BACKEND_URL = `http://${backendHost}:8000/query`; // EC2 or other server
+    }
+
     console.log("About to fetch from:", BACKEND_URL);
 
     const res = await fetch(BACKEND_URL, {

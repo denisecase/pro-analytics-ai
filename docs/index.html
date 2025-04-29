@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pro-analytics-ai</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Optional backend override -->
+  <script>
+    const BACKEND_OVERRIDE = "http://34.222.116.69:8000/query";
+    // Leave empty ("") if you want to use automatic detection (localhost vs deployed IP)
+  </script>
 </head>
+
 <body>
   <div class="container">
     <h1>Ask the Professional Analytics Assistant</h1>
@@ -13,12 +20,23 @@
     <button id="submitButton">Ask</button>
     <div id="responseBox"></div>
   </div>
+
   <p style="margin-top: 2em; text-align: center; font-size: 0.9em;">
-    This assistant is trained on the 
+    This assistant is trained on the
     <a href="https://github.com/denisecase/pro-analytics-01" target="_blank">
       pro-analytics-01
-    </a> guide and is designed to help with setting up and working on professional analytics projects using Git, Python, and VS Code.
+    </a> guide and is designed to help with setting up and working on professional analytics projects using Git, Python,
+    and VS Code.
   </p>
+
+    <!-- Add GitHub Icon -->
+    <div style="text-align: center; margin-top: 1.5em;">
+      <a href="https://github.com/denisecase/pro-analytics-ai" target="_blank">
+        <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub Repo" width="40" height="40" />
+      </a>
+    </div>
+
   <script src="app.js"></script>
 </body>
+
 </html>
