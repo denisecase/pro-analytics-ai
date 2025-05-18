@@ -166,11 +166,17 @@ Since we haven't done that, responses will vary. For example:
 
 ---
 
+## If Windows, Work in WSL
+
+Open PowerShell terminal and type `wsl` and hit Enter to run. 
+All work is done in WSL. Tested with Ubuntu.
+
 ## Create Repos folder and Clone (One-Time to Get Started)
 
-- Create ~/repos folder: `mkdir -p ~/repos`
+- Create ~/Repos folder: `mkdir -p ~/Repos`
 - Clone your repo with `git clone your-repo-url`
-- Open in VS Code: `code .`
+- Change directory into your project repo with `cd pro-analytics-ai`
+- Open your project repo folder in VS Code: `code .`
 
 ## Get LLM API Key (One-Time Task)
 
