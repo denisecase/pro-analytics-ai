@@ -1,4 +1,4 @@
-# 06-git-add-commit-push.md
+# 🔵 06-git-add-commit-push.md
 
 This page provides instructions to add files to version control, commit changes, and push them to your remote repository.
 
@@ -34,3 +34,7 @@ git push
 ## Experience
 
 Experience comes from executing these commands frequently after making useful changes to a project. 
+
+---
+
+[🔵 Finished with Part 3: Repeatable Workflow](REPEATABLE-WORKFLOW.md)

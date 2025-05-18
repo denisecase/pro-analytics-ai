@@ -1,4 +1,4 @@
-# 05-create-virtual-environment.md
+# 🟠 05-create-virtual-environment.md
 
 This page provides instructions to create a place in your project repository folder that will hold the Python virtual environment for the project. 
 It provides an isolated Python environment for the project, so we don't mess up the global Python used by our machine. 
@@ -39,24 +39,30 @@ If VS Code asks: We noticed a new environment has been created.
 Do you want to select it for the workspace folder?
 Click Yes. 
 
-## ADVANCED OPTION (Create .venv when an Older Python Version is Required)
+---
+
+## OPTIONAL/ADVANCED OPTION (Only if Older Python is Needed)
+
+*Do not continue with this section unless you are using complex tools like Apache Kafka or Apache Spark that may take a while to catch up to the latest version of Python. Know these instructions are here when you need them later.*
 
 Most projects can use the latest Python 3.x, but some tools (like Apache Kafka or Apache Spark) may require an older version.
-
 First, see the machine setup instructions to install additional versions of Python. 
-
 Then, specify the required version when creating the virtual environment. 
- For example:
+For example:
 
-### On Windows, Use PowerShell (not cmd)
+### On Windows, Use PowerShell (NOT cmd)
 
 ```powershell
 py -3.11 -m venv .venv
 ```
 
-### On Mac/Linux, Use zsh or bash
+### On Mac/Linux, Use Default Terminal (e.g., zsh or bash)
 
-```
+```shell
 pyenv local 3.11.11
 python3 -m venv .venv
 ```
+
+---
+
+[🟠 Finished with Part 2: Project Initialization](PROJECT-INITIALIZATION.md)

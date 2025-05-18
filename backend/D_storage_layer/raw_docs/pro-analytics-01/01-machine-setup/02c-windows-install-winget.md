@@ -1,4 +1,4 @@
-# 02-windows-install-winget.md
+# 🟢 02-windows-install-winget.md (OPTIONAL)
 
 This page provides instructions to install or verify the Windows Package Manager (winget) on a Windows machine.
 
@@ -21,3 +21,9 @@ winget --info
 ```
 
 When winget is correctly installed, this command will display version information.
+
+---
+
+[🟢 Continue with Part 1: Machine Setup](MACHINE-SETUP.md)
+
+

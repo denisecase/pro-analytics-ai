@@ -1,4 +1,4 @@
-# 01a-copy-existing-repo-in-github.md
+# 🟠 01a-copy-existing-repo-in-github.md
 
 This page provides instructions to copy an existing repository in GitHub.
 
@@ -13,4 +13,8 @@ This page provides instructions to copy an existing repository in GitHub.
    - Enter a new name for your copy of the repository. For Python projects: Use all lowercase. Use dashes between words. Never leave spaces in the repository name. 
 5. Make it public.
 6. Complete the process as needed to create repository from template or confirm the fork.
+
+---
+
+[🟠 Continue with Part 2: Project Initialization](PROJECT-INITIALIZATION.md)
 

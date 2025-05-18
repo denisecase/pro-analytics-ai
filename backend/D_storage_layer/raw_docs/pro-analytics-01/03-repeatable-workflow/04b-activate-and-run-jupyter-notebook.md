@@ -1,8 +1,13 @@
-# 04b-activate-and-run-jupyter-notebook.md
+# 🔵 04b-activate-and-run-jupyter-notebook.md
 
 This page explains how to run Jupyter notebooks in VS Code. When we execute code in a Jupyter notebook, the kernel runs the code interactively, allowing us to test, visualize, and document our analysis step by step.
 
-A notebook is a web based interactive environment commonly used for exploratory data analysis (EDA) and more. 
+A notebook is a web based interactive environment commonly used for exploratory data analysis (EDA) and more.
+
+## Important Note
+
+Use this only when your project uses **Jupyter notebook (`.ipynb`)** files. 
+If your project only uses Python script (`.py`) files, you will not need this. 
 
 ## Before Starting
 
@@ -61,10 +66,13 @@ Keep your notebooks organized and execute them fully before running git add-comm
 
 ## Experience
 
-Understand the role of a Jupyter kernel.
-Understand how to select and verify that the kernel and environment match to ensure all dependencies are correctly available.  
- 
-Learn Markdown to make professional notebooks. 
-Use only one top level title. 
-Use numbered second-level headings to organize your work.
-Document your process and steps in the notebook and tell a story with data. 
+- Understand the role of a Jupyter kernel.
+- Understand how to select and verify that the kernel and environment match to ensure all dependencies are correctly available.  
+- Learn Markdown to make professional notebooks. 
+- Use only one top level title. 
+- Use numbered second-level headings to organize your work.
+- Document your process and steps in the notebook and tell a story with data. 
+
+---
+
+[🔵 Continue with Part 3: Repeatable Workflow](REPEATABLE-WORKFLOW.md)

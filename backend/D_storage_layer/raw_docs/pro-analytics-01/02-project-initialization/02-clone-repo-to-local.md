@@ -1,28 +1,30 @@
-# 02-clone-repo-to-local.md
+# 🟠 02-clone-repo-to-local.md
 
-This page provides instructions to copy a GitHub repository to a local machine. 
+This page provides instructions to copy a GitHub repository to a local machine.
 
-## Before Starting
+## Task 1. Copy the Web Address (URL) of Your GitHub Repository
 
-Open your project repository in VS Code. 
+In your browser, view your GitHub repository.
+You should see your account name and the repo name in the browser address bar.
+For example, the URL to this repository (in my account) is <https://github.com/denisecase/pro-analytics-01>.
 
-We'll open a new terminal in VS Code and run a single command. 
+Verify you are working with a GitHub repository in YOUR account.
+Use `CTRL a` to select all and `CTRL c` to copy the URL to your clipboard. On Mac/Linux, use `CMD a` and `CMD c`.
 
-## Copy the URL to the GitHub Repository
+## Task 2. Git Clone the Repo to Your Local Machine
 
-In your browser, view your GitHub repo - you should see your account name and the repo name in the browser address bar. 
-For example, this URL looks like <https://github.com/denisecase/pro-analytics-01>
+Open a terminal where you keep your GitHub repos (e.g. `C:\Repos` or `~/Repos`).
+On Mac/Linux, use the default Terminal (e.g. zsh or bash), on Windows, use **PowerShell**. On Windows, do NOT use cmd, the older command Window. 
 
-Use CTRL a to select all and CTRL c to copy the URL to your clipboard. Mac/Linux CMD a, CMD c.
+In the terminal, type `git clone` leave a single space and use `CTRL v` (or `CMD v`) to paste the URL to your GitHub repository into the command. Hit Enter or Return to run the command. 
 
-
-## Task 1. Clone Repository to Local Machine
-
-Run the following command from the project root directory. 
-Type git clone and paste your URL. The following is only an example. 
 The command works in PowerShell, bash, zsh, Git Bash, and more. 
+**IMPORTANT**: The command below is just an example - you must use **your** GitHub account name and **your exact repository name** for it to work. 
  
-
 ```shell
 git clone https://github.com/youraccount/yourrepo
 ```
+
+---
+
+[🟠 Continue with Part 2: Project Initialization](PROJECT-INITIALIZATION.md)

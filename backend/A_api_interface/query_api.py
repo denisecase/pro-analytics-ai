@@ -64,14 +64,14 @@ async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
 @app.post("/query", response_model=QueryResponse)
 @limiter.limit("10/minute;200/day")  
 async def ask_question(request: Request, payload: QueryRequest):
-    if ENV == "dev":
-        logger.info(f"Ignoring query in {ENV} mode.")
-        return QueryResponse(
-            answer=(
-                "Hello!\n"
-                "Thank you for visiting. This assistant runs locally, but is not yet hosted for wider access."
-            )
-        )
+    # if ENV == "dev":
+    #     logger.info(f"Ignoring query in {ENV} mode.")
+    #     return QueryResponse(
+    #         answer=(
+    #             "Hello!\n"
+    #             "Thank you for visiting. This assistant runs locally, but is not yet hosted for wider access."
+    #         )
+    #     )
 
     question = payload.question
     logger.info(f"Received query: {question}")

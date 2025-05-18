@@ -1,55 +1,67 @@
 document.getElementById("submitButton").addEventListener("click", async () => {
+  const questionInput = document.getElementById("questionInput");
+  const responseBox = document.getElementById("responseBox");
+  const historyContainer = document.getElementById("historyContainer");
+
+  const question = questionInput.value.trim();
+  if (!question) return;
+
+  // Display the question in the history
+  const questionElement = document.createElement("div");
+  questionElement.className = "history-item question";
+  questionElement.textContent = `Q: ${question}`;
+  historyContainer.prepend(questionElement);
+
+  // Send the question to the API
   try {
-    const questionInput = document.getElementById("questionInput");
-    const responseBox = document.getElementById("responseBox");
-    const question = questionInput.value.trim();
-
-    if (!question) {
-      responseBox.innerText = "Please enter a question.";
-      return;
-    }
-
-    responseBox.innerText = "Thinking...";
-    console.log("Sending question:", question);
-
-    // Dynamic backend URL based on window.location.hostname
-    let backendHost = window.location.hostname;
-    let BACKEND_URL = "";
-
-    if (backendHost === "localhost" || backendHost === "127.0.0.1" || backendHost === "") {
-      BACKEND_URL = "http://127.0.0.1:8000/query"; // Local dev
-    } else {
-      BACKEND_URL = `http://${backendHost}:8000/query`; // EC2 or other server
-    }
-
-    console.log("About to fetch from:", BACKEND_URL);
-
-    const res = await fetch(BACKEND_URL, {
+    const response = await fetch("http://127.0.0.1:8000/query", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ question })
+      body: JSON.stringify({ question }),
     });
 
-    console.log("Fetch status:", res.status);
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
 
-    if (!res.ok) throw new Error(`Network response was not ok (status ${res.status})`);
+      // Clear previous response
+      responseBox.innerHTML = "";
 
-    const data = await res.json();
-    console.log("Received data:", data);
+      // Process and display the answer
+      const answerElement = document.createElement("div");
+      answerElement.className = "history-item answer";
+      answerElement.innerHTML = formatResponse(data.answer);
+      historyContainer.prepend(answerElement);
 
-    if (data.answer) {
-      responseBox.innerText = data.answer;
-      console.log("Displayed answer.");
+      // Also display it in the main response box
+      responseBox.innerHTML = answerElement.innerHTML;
     } else {
-      responseBox.innerText = "No answer returned.";
-      console.warn("Empty response content.");
+      responseBox.innerHTML = `<p style="color: red;">Failed to get a response from the server.</p>`;
     }
-  } catch (err) {
-    console.error("Top-level error:", err);
-    const responseBox = document.getElementById("responseBox");
-    responseBox.innerText = "Error: " + err.message;
-    alert("An error occurred: " + err.message);
+  } catch (error) {
+    console.error(error);
+    responseBox.innerHTML = `<p style="color: red;">An error occurred while connecting to the server.</p>`;
   }
+  
+  questionInput.value = "";
 });
+
+/**
+ * Formats the raw response from the AI assistant.
+ */
+function formatResponse(rawResponse) {
+  if (!rawResponse) return "<p>No data received.</p>";
+
+  // Remove Markdown-style list items and format neatly
+  const formattedResponse = rawResponse
+    .replace(/### Local results from pro-analytics-01:/g, "<h3>Local results from pro-analytics-01:</h3>")
+    .replace(/- \[ \]/g, "<li>")
+    .replace(/\n/g, "")
+    .replace(/\*\*/g, "")
+    .replace(/<\/li>\s*<li>/g, "</li><li>");
+
+  // Create unordered list where needed
+  return `<ul>${formattedResponse}</ul>`;
+}

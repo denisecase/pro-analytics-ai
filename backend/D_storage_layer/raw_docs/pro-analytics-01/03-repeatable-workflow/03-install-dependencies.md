@@ -1,4 +1,4 @@
-# 03-install-dependencies.md
+# 🔵 03-install-dependencies.md
 
 This page explains how to install external dependencies for a Python project. 
 
@@ -57,3 +57,6 @@ For example, it's common to add in matplotlib or seaborn once we have interestin
 Learn how and when to add external dependencies to requirements.txt and repeat this process as needed to make use of the powerful free ecosystem for Python projects. 
 Explore popular external packages like requests and more to see why they get used. 
 
+---
+
+[🔵 Continue with Part 3: Repeatable Workflow](REPEATABLE-WORKFLOW.md)

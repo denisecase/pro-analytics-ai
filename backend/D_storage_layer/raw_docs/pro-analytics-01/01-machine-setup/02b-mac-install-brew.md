@@ -1,4 +1,4 @@
-# 02-mac-install-brew.md
+# 🟢 02-mac-install-brew.md (OPTIONAL)
 
 This page provides instructions to install or verify the Homebrew package manager on a macOS machine.
 
@@ -26,4 +26,9 @@ Use the command provided on their official site at <https://brew.sh/> in the fir
 brew update
 brew --version
 ```
+
+---
+
+[🟢 Continue with Part 1: Machine Setup](MACHINE-SETUP.md)
+
 

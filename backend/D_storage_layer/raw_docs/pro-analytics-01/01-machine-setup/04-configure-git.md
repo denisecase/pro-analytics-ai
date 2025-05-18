@@ -1,21 +1,22 @@
-# 04-configure-git.md
+# 🟢 04-configure-git.md
 
 After installing Git, configure the global user.name and user.email. 
 
-##  Open VS Code. 
+##  Open VS Code
 
-Open your newly installed VS Code editor. We'll use the terminal available in VS Code.
+Open your VS Code editor. We'll use the terminal available in VS Code.
 
-## New Terminal
+## Open a New Terminal
 
-Use the VS Code menu to select Terminal >  New Terminal.
-Opening a new terminal will ensure the terminal knows about the newly installed git. 
+Use the VS Code menu to select `Terminal` >  `New Terminal`.
+Opening a new terminal ensures the terminal knows about recently installed git. 
 
 ## Important: Know Your Terminal Type
 
-If Windows, always use a terminal type of PowerShell. Do not use Command Prompt - it is deprecated.
-If Mac/Linux, use the default (typically zsh or bash).
+If Windows, always use a terminal type of `PowerShell` (powershell) or `PowerShell Core` (pwsh).
+Do NOT use Command Prompt - it is deprecated.
 
+If Mac/Linux, use the default terminal (typically `zsh` or `bash`).
 
 Configure your git user.name and user.email. 
 Use YOUR name and email in the commands below. 
@@ -31,3 +32,10 @@ git config --list
 ```
 
 Verify that the last command correctly shows your user.name and user.email. 
+If not, repeat the installation and configuration until successful.
+
+---
+
+[🟢 Continue with Part 1: Machine Setup](MACHINE-SETUP.md)
+
+

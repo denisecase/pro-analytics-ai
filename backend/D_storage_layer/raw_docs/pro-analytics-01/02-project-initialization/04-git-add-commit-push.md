@@ -1,4 +1,4 @@
-# 04-git-add-commit-push.md
+# 🟠 04-git-add-commit-push.md
 
 This page provides instructions to add files to version control, commit changes, and push them to your remote repository.
 
@@ -8,7 +8,7 @@ This page provides instructions to add files to version control, commit changes,
 
 ## Before Starting
 
-Ensure your project repository is open in VS Code, and you have made changes (e.g. created the .gitignore and requirements.txt files).
+Ensure your project folder is open in VS Code, and you have made changes (e.g. created the .gitignore and requirements.txt files).
 
 ## Task 1. Git add-commit-push
 
@@ -34,3 +34,7 @@ git push
 ## Experience
 
 Experience comes from executing these commands frequently after making useful changes to a project. 
+
+---
+
+[🟠 Continue with Part 2: Project Initialization](PROJECT-INITIALIZATION.md)

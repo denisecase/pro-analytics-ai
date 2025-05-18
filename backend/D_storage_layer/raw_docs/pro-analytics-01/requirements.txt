@@ -34,7 +34,7 @@
 # Click Yes. 
 
 # ======================================================
-# STEP A (ADVANCED OPTION) - IF OLDER PYTHON REQUIRED
+# STEP A (ADVANCED OPTION) - ONLY WHEN OLDER PYTHON VERSION IS REQUIRED
 # ======================================================
 
 ### IMPORTANT: 
@@ -46,7 +46,7 @@
 ### On Mac  - don't include the #:
 # brew install python@3.11
 # python3 -m venv .venv
-### On Linux - don't include the #:
+### On Linux/WSL - don't include the #:
 # sudo apt update
 # sudo apt install python3.11 python3.11-venv
 # python3.11 -m venv .venv
@@ -61,7 +61,7 @@
 ### Windows PowerShell Command (don't include the #):
 # .\.venv\Scripts\activate
 
-### Mac/Linux Command (don't include the #):
+### Mac/Linux/WSL Command (don't include the #):
 # source .venv/bin/activate
 
 # Verify: When active, you can usually see (.venv) in the terminal.
@@ -80,17 +80,17 @@
 
 ### Windows Command (don't include the #):
 # py -m pip install --upgrade pip setuptools wheel
-# py -m pip install --upgrade -r requirements.txt
+# py -m pip install --upgrade -r requirements.txt --timeout 100
 
-### Mac/Linux Command (don't include the #):
+### Mac/Linux/WSL Command (don't include the #):
 # python3 -m pip install --upgrade pip setuptools wheel
-# python3 -m pip install --upgrade -r requirements.txt
+# python3 -m pip install --upgrade -r requirements.txt --timeout 100
 
 # When you identify a new package you want to use, 
 # Just update the list below and re-run the install command. 
 
 # ======================================================
-# VS CODE: Select Interpreter
+# STEP D: VS CODE - Select Interpreter 
 # ======================================================
 # VS Code needs our populated .venv to interpret our files correctly.
 # To set the VS Code Interpreter:
@@ -110,17 +110,26 @@
 
 # DO NOT UNCOMMENT THESE - THEY ARE ALREADY INCLUDED.
 
-# json - For handling JSON data
-# csv - For reading/writing CSV files
-# datetime - For handling dates and times
-# logging - For structured logging in Python
-# os - For interacting with the operating system (e.g., file paths, environment variables)
-# sys - For accessing system-specific parameters and functions
-# pathlib - For working with filesystem paths
-# sqlite3 - For working with SQLite databases (built into Python)
-# time - For working with time-based functions
-# random - For generating random numbers
-# re - For regular expressions and pattern matching
+# json       - For handling JSON data
+# csv        - For reading/writing CSV files
+# sqlite3    - For working with SQLite databases (built into Python)
+# pathlib    - For working with filesystem paths
+# os         - For interacting with the OS (e.g., file paths, env vars)
+# sys        - For system-specific parameters and functions
+# urllib      - For basic URL handling and data fetching (useful with or without requests)
+
+# math        - For mathematical functions (sqrt, log, etc.)
+# statistics  - For statistical analysis (mean, median, stdev, etc.)
+# random      - For generating random numbers
+# time        - For time-based functions
+# datetime    - For date and time manipulation
+
+# logging     - For structured logging in Python
+# re          - For regular expressions and pattern matching
+# pprint      - For pretty-printing complex or nested data structures
+# collections - For specialized containers like Counter, defaultdict
+# typing      - For type hints and static type checking
+# unittest    - For writing and running unit tests
 
 # ======================================================
 # ESSENTIAL EXTERNAL TOOLS - UNCOMMENT ONLY WHAT THE PROJECT NEEDS
@@ -135,8 +144,11 @@ wheel
 # Easy logging for monitoring code execution
 loguru
 
+# HTTP requests made simple
+# requests
+
 # Environment variables management
-python-dotenv
+# python-dotenv
 
 # ======================================================
 # TEXT-TO-SPEECH
@@ -145,8 +157,12 @@ python-dotenv
 pyttsx3  
 
 # ======================================================
-# JUPYTER (OPTIONAL, NEEDED FOR NOTEBOOKS)
+# JUPYTERLAB (OPTIONAL, NEEDED FOR NOTEBOOKS)
 # ======================================================
+
+# Next-generation web-based interactive development environment for Jupyter notebooks, code, and data.
+# Offers a more feature-rich and versatile experience than the classic Jupyter Notebook. (60-70 MB)
+# jupyterlab
 
 # Core IPython package that provides an enhanced interactive Python shell (10-15 MB).
 ipython
@@ -160,16 +176,59 @@ ipykernel
 # Interactive widgets (often used in notebooks).
 ipywidgets
 
+# ======================================================
+# EXCEL FILE READING AND WRITING
+# ======================================================
+
+# Primary library for Excel (both .xls and .xlsx); handles formulas, charts, formatting (~8 MB)
+# Used by pandas and other libraries.
+# openpyxl
+
+# For writing advanced Excel files (.xlsx)
+# xlsxwriter
+
+# Only for reading older Excel files (.xls) since version 2
+# xlrd
+
+# Optional: For unified access to different spreadsheet formats
+# pyexcel
+
+# ======================================================
+# DATA STORAGE, TRANSFORMATION, AND ORCHESTRATION
+# ======================================================
+
+# SQLite database support (sqlite3 is built into Python, no install needed)
+
+# DuckDB: A lightweight, serverless OLAP database for Python (5-10 MB).
+# duckdb
+
+# ORM for SQL databases (~10 MB) such as PostgreSQL, MySQL, and SQLite
+# sqlalchemy  
+
+# DBT Core: SQL-based transformation tool (~60-80 MB)
+# dbt-core
+
+# DBT DuckDB Adapter: Allows dbt to run on DuckDB (~20-30 MB)
+# dbt-duckdb
+
+# SQLMesh: Alt. to DBT for declarative data transformations in SQL, Python (~30–50 MB)
+# sqlmesh
+
+# Workflow orchestration for Python tasks (~30-50 MB)
+# prefect>=2.0
 
 # ======================================================
 # DATA ANALYSIS 
 # ======================================================
 
 # Numerical computations and arrays (20-30 MB)
-#numpy
+# numpy
 
 # Data manipulation and analysis (built on numpy, 10-20 MB)
-pandas
+# pandas
+
+# High-performance DataFrame library for large datasets (Rust-based, fast) (~5-10 MB)
+# polars
 
 # ======================================================
 # VISUALIZATION
@@ -182,58 +241,54 @@ matplotlib
 seaborn
 
 # Interactive plotting library, often used with Shiny apps (~20-25 MB)
-#plotly
+# plotly
 
 # ======================================================
 # CONTINUOUS INTELLIGENCE AND INTERACTIVE ANALYTICS
 # ======================================================
 
 # Shiny framework for Python applications (~5-10 MB)
-#shiny
+# shiny
 
 # ======================================================
 # KAFKA STREAMING MESSAGE BROKER INTEGRATION
 # ======================================================
 
 # Apache Kafka Python client (~1 MB)
-# Currently requires Python 3.11
-#kafka-python-ng
+# kafka-python-ng
 
 # ======================================================
 # STREAM PROCESSING - CAN BE VERY LARGE
 # ======================================================
 
 # Streaming data processing framework (~200-250 MB)
+# Python compatibility varies by Spark version. Check the official documentation.
 # Currently requires Python <3.12, e.g. 3.11
-#pyspark<4.0.0
+# pyspark<4.0.0
 
 # Alternative lightweight parallel computing framework
-#dask  
+# dask  
 
 # ======================================================
-# MACHINE LEARNING (ML)
+# MACHINE LEARNING (ML) and STATISTICAL MODELING
 # ======================================================
+
+# Statistical modeling and inference (~10-15 MB)
+# statsmodels
 
 # Core ML library with flexible APIs (~40-50 MB)
-#scikit-learn
+# scikit-learn
 
 # ======================================================
 # NATURAL LANGUAGE PROCESSING (NLP) - CAN BE VERY LARGE
 # ======================================================
 
 # NLP library for text processing (~10 MB core library; downloading corpora can add ~1 GB).
-#nltk
+# nltk
 
 # SpaCy: A powerful NLP library ~50 MB (core library; language models + ~300 MB or more per model).
 # Currently requires Python <=3.12
-#spacy<3.7
-
-# ======================================================
-# SQL DATABASE SUPPORT
-# ======================================================
-
-# ORM for SQL databases (~10 MB) when sqlite3 is not enough
-#sqlalchemy  
+# spacy<3.7
 
 # ======================================================
 # SENDING ALERTS via Simple Email or SMS Text using Gmail
@@ -249,3 +304,19 @@ seaborn
 # Uncomment the necessary package(s) to send email or SMS alerts.
 # dc-mailer
 # dc-texter
+
+# ======================================================
+# API + dev server
+# ======================================================
+
+# Lightweight API server for building RESTful APIs and web applications (10-20 MB)
+# fastapi  
+
+# Rate limiting
+# slowapi
+
+# ASGI server to run FastAPI applications (10-20 MB)
+# uvicorn   
+
+# For request validation and serialization in FastAPI (5-10 MB)
+# pydantic     

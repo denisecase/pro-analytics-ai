@@ -178,6 +178,19 @@ All work is done in WSL. Tested with Ubuntu.
 - Change directory into your project repo with `cd pro-analytics-ai`
 - Open your project repo folder in VS Code: `code .`
 
+## Prepare the Environment (One-Time Task)
+
+In VS Code, open a Terminal / New Terminal and run the following commands one at a time. 
+
+```shell
+sudo apt update
+sudo apt install software-properties-common -y
+sudo add-apt-repository ppa:deadsnakes/ppa -y
+sudo apt update
+sudo apt install python3.11 python3.11-venv -y
+sudo apt install uvicorn -y
+```
+
 ## Get LLM API Key (One-Time Task)
 
 1. Go to: https://openrouter.ai/
@@ -192,20 +205,17 @@ OPENROUTER_API_KEY=or-xxxxxxxxxxxxxxxxxxxx
 
 ## Create a .venv and Install Dependencies
 
-- Open the project repository folder in VS Code. 
-- Open a new terminal (bash or zsh) (e.g. using the VS Code menu / Terminal / New Terminal) and run the following commands one at a time. 
-- For more info, see requirements.txt. 
-- Add `--timeout 100` to let each file take 100 seconds instead of default 15 seconds. 
-- Run update again after installing deadsnakes.
+Open the project repository folder in VS Code. 
+Open a new terminal (bash or zsh) (e.g. using the VS Code menu / Terminal / New Terminal) and run the following commands one at a time. 
 
-```shell
-sudo apt update
-sudo apt install software-properties-common -y
-sudo add-apt-repository ppa:deadsnakes/ppa -y
-sudo apt update
-sudo apt install python3.11 python3.11-venv -y
-sudo apt install uvicorn -y
-```
+1. Create a new virtual environment named .venv (one-time task).
+2. Activate the virtual environment (every time you open a terminal).
+3. Install and upgrade key packages.
+4. Install and upgrade packages from requirements.txt.
+
+For more info, see requirements.txt. 
+Add `--timeout 100` to let each file take 100 seconds instead of default 15 seconds. 
+Run update again after installing deadsnakes.
 
 ```shell
 python3.11 -m venv .venv
@@ -214,7 +224,7 @@ python3 -m pip install --upgrade pip setuptools wheel
 python3 -m pip install --upgrade -r requirements.txt --timeout 100
 ```
 
-Note 1. You need to rerun the last install command several times to get all packages downloaded and installed correctly into your local project virtual environment (.venv). 
+Note 1. You may need to rerun the last install command several times to get all packages downloaded and installed correctly into your local project virtual environment (.venv). 
 
 Note 2. When returning to the project, remember to activate your .venv before installing requirements or running code. 
 
@@ -224,6 +234,7 @@ Note 2. When returning to the project, remember to activate your .venv before in
 To launch the backend:
 
 ```shell
+source .venv/bin/activate
 uvicorn backend.A_api_interface.query_api:app --host 0.0.0.0 --port 8000 --reload
 ```
 Keep the terminal open and don't use it for anything else while running the backend. 
@@ -253,6 +264,7 @@ git clone https://github.com/denisecase/pro-analytics-01 backend/D_storage_layer
 rm -rf backend/D_storage_layer/raw_docs/pro-analytics-01/.git
 rm -rf backend/D_storage_layer/raw_docs/pro-analytics-01/.vscode
 rm -rf backend/D_storage_layer/raw_docs/pro-analytics-01/logs
+python3 refresh_chroma.py
 ```
 
 This updates the content and deletes the .git folder and other unneeded parts from backend/D_storage_layer/raw_docs/pro-analytics-01.
